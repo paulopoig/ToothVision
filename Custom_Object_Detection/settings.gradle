@@ -1,0 +1,6 @@
+include ':app'
+rootProject.name = "ImagePro"
+include ':openCVLibrary3413'
+
+include ':unityLibrary'
+project(':unityLibrary').projectDir=new File('unityLibrary')

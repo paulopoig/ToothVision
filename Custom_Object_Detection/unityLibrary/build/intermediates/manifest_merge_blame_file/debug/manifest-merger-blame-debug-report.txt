@@ -1,0 +1,153 @@
+1<?xml version="1.0" encoding="utf-8"?>
+2<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+3    xmlns:tools="http://schemas.android.com/tools"
+4    package="com.unity3d.player"
+5    android:versionCode="1"
+6    android:versionName="0.1" >
+7
+8    <uses-sdk
+9        android:minSdkVersion="26"
+9-->D:\Object_Detection\Custom_Object_Detection\unityLibrary\src\main\AndroidManifest.xml
+10        android:targetSdkVersion="30" />
+10-->D:\Object_Detection\Custom_Object_Detection\unityLibrary\src\main\AndroidManifest.xml
+11
+12    <uses-feature android:glEsVersion="0x00030000" />
+12-->D:\Object_Detection\Custom_Object_Detection\unityLibrary\src\main\AndroidManifest.xml:20:3-52
+12-->D:\Object_Detection\Custom_Object_Detection\unityLibrary\src\main\AndroidManifest.xml:20:17-49
+13    <uses-feature
+13-->D:\Object_Detection\Custom_Object_Detection\unityLibrary\src\main\AndroidManifest.xml:21:3-91
+14        android:name="android.hardware.vulkan.version"
+14-->D:\Object_Detection\Custom_Object_Detection\unityLibrary\src\main\AndroidManifest.xml:21:17-63
+15        android:required="false" />
+15-->D:\Object_Detection\Custom_Object_Detection\unityLibrary\src\main\AndroidManifest.xml:21:64-88
+16
+17    <uses-permission android:name="android.permission.CAMERA" />
+17-->D:\Object_Detection\Custom_Object_Detection\unityLibrary\src\main\AndroidManifest.xml:22:3-63
+17-->D:\Object_Detection\Custom_Object_Detection\unityLibrary\src\main\AndroidManifest.xml:22:20-60
+18
+19    <uses-feature
+19-->D:\Object_Detection\Custom_Object_Detection\unityLibrary\src\main\AndroidManifest.xml:23:3-83
+20        android:name="android.hardware.camera"
+20-->D:\Object_Detection\Custom_Object_Detection\unityLibrary\src\main\AndroidManifest.xml:23:17-55
+21        android:required="false" />
+21-->D:\Object_Detection\Custom_Object_Detection\unityLibrary\src\main\AndroidManifest.xml:23:56-80
+22    <uses-feature
+22-->D:\Object_Detection\Custom_Object_Detection\unityLibrary\src\main\AndroidManifest.xml:24:3-93
+23        android:name="android.hardware.camera.autofocus"
+23-->D:\Object_Detection\Custom_Object_Detection\unityLibrary\src\main\AndroidManifest.xml:24:17-65
+24        android:required="false" />
+24-->D:\Object_Detection\Custom_Object_Detection\unityLibrary\src\main\AndroidManifest.xml:24:66-90
+25    <uses-feature
+25-->D:\Object_Detection\Custom_Object_Detection\unityLibrary\src\main\AndroidManifest.xml:25:3-89
+26        android:name="android.hardware.camera.front"
+26-->D:\Object_Detection\Custom_Object_Detection\unityLibrary\src\main\AndroidManifest.xml:25:17-61
+27        android:required="false" />
+27-->D:\Object_Detection\Custom_Object_Detection\unityLibrary\src\main\AndroidManifest.xml:25:62-86
+28    <uses-feature
+28-->D:\Object_Detection\Custom_Object_Detection\unityLibrary\src\main\AndroidManifest.xml:26:3-88
+29        android:name="android.hardware.touchscreen"
+29-->D:\Object_Detection\Custom_Object_Detection\unityLibrary\src\main\AndroidManifest.xml:26:17-60
+30        android:required="false" />
+30-->D:\Object_Detection\Custom_Object_Detection\unityLibrary\src\main\AndroidManifest.xml:26:61-85
+31    <uses-feature
+31-->D:\Object_Detection\Custom_Object_Detection\unityLibrary\src\main\AndroidManifest.xml:27:3-99
+32        android:name="android.hardware.touchscreen.multitouch"
+32-->D:\Object_Detection\Custom_Object_Detection\unityLibrary\src\main\AndroidManifest.xml:27:17-71
+33        android:required="false" />
+33-->D:\Object_Detection\Custom_Object_Detection\unityLibrary\src\main\AndroidManifest.xml:27:72-96
+34    <uses-feature
+34-->D:\Object_Detection\Custom_Object_Detection\unityLibrary\src\main\AndroidManifest.xml:28:3-108
+35        android:name="android.hardware.touchscreen.multitouch.distinct"
+35-->D:\Object_Detection\Custom_Object_Detection\unityLibrary\src\main\AndroidManifest.xml:28:17-80
+36        android:required="false" />
+36-->D:\Object_Detection\Custom_Object_Detection\unityLibrary\src\main\AndroidManifest.xml:28:81-105
+37
+38    <application android:extractNativeLibs="true" >
+38-->D:\Object_Detection\Custom_Object_Detection\unityLibrary\src\main\AndroidManifest.xml:3:3-19:17
+38-->D:\Object_Detection\Custom_Object_Detection\unityLibrary\src\main\AndroidManifest.xml:3:16-48
+39        <activity
+39-->D:\Object_Detection\Custom_Object_Detection\unityLibrary\src\main\AndroidManifest.xml:4:5-11:16
+40            android:name="com.unity3d.player.UnityPlayerActivity"
+40-->D:\Object_Detection\Custom_Object_Detection\unityLibrary\src\main\AndroidManifest.xml:4:15-68
+41            android:configChanges="mcc|mnc|locale|touchscreen|keyboard|keyboardHidden|navigation|orientation|screenLayout|uiMode|screenSize|smallestScreenSize|fontScale|layoutDirection|density"
+41-->D:\Object_Detection\Custom_Object_Detection\unityLibrary\src\main\AndroidManifest.xml:4:180-361
+42            android:hardwareAccelerated="false"
+42-->D:\Object_Detection\Custom_Object_Detection\unityLibrary\src\main\AndroidManifest.xml:4:397-432
+43            android:launchMode="singleTask"
+43-->D:\Object_Detection\Custom_Object_Detection\unityLibrary\src\main\AndroidManifest.xml:4:148-179
+44            android:resizeableActivity="false"
+44-->D:\Object_Detection\Custom_Object_Detection\unityLibrary\src\main\AndroidManifest.xml:4:362-396
+45            android:screenOrientation="fullUser"
+45-->D:\Object_Detection\Custom_Object_Detection\unityLibrary\src\main\AndroidManifest.xml:4:111-147
+46            android:theme="@style/UnityThemeSelector" >
+46-->D:\Object_Detection\Custom_Object_Detection\unityLibrary\src\main\AndroidManifest.xml:4:69-110
+47            <intent-filter>
+47-->D:\Object_Detection\Custom_Object_Detection\unityLibrary\src\main\AndroidManifest.xml:5:7-8:23
+48                <action android:name="android.intent.action.MAIN" />
+48-->D:\Object_Detection\Custom_Object_Detection\unityLibrary\src\main\AndroidManifest.xml:6:9-61
+48-->D:\Object_Detection\Custom_Object_Detection\unityLibrary\src\main\AndroidManifest.xml:6:17-58
+49
+50                <category android:name="android.intent.category.LAUNCHER" />
+50-->D:\Object_Detection\Custom_Object_Detection\unityLibrary\src\main\AndroidManifest.xml:7:9-69
+50-->D:\Object_Detection\Custom_Object_Detection\unityLibrary\src\main\AndroidManifest.xml:7:19-66
+51            </intent-filter>
+52
+53            <meta-data
+53-->D:\Object_Detection\Custom_Object_Detection\unityLibrary\src\main\AndroidManifest.xml:9:7-82
+54                android:name="unityplayer.UnityActivity"
+54-->D:\Object_Detection\Custom_Object_Detection\unityLibrary\src\main\AndroidManifest.xml:9:18-58
+55                android:value="true" />
+55-->D:\Object_Detection\Custom_Object_Detection\unityLibrary\src\main\AndroidManifest.xml:9:59-79
+56            <meta-data
+56-->D:\Object_Detection\Custom_Object_Detection\unityLibrary\src\main\AndroidManifest.xml:10:7-78
+57                android:name="android.notch_support"
+57-->D:\Object_Detection\Custom_Object_Detection\unityLibrary\src\main\AndroidManifest.xml:10:18-54
+58                android:value="true" />
+58-->D:\Object_Detection\Custom_Object_Detection\unityLibrary\src\main\AndroidManifest.xml:10:55-75
+59        </activity>
+60
+61        <meta-data
+61-->D:\Object_Detection\Custom_Object_Detection\unityLibrary\src\main\AndroidManifest.xml:12:5-69
+62            android:name="unity.splash-mode"
+62-->D:\Object_Detection\Custom_Object_Detection\unityLibrary\src\main\AndroidManifest.xml:12:16-48
+63            android:value="0" />
+63-->D:\Object_Detection\Custom_Object_Detection\unityLibrary\src\main\AndroidManifest.xml:12:49-66
+64        <meta-data
+64-->D:\Object_Detection\Custom_Object_Detection\unityLibrary\src\main\AndroidManifest.xml:13:5-74
+65            android:name="unity.splash-enable"
+65-->D:\Object_Detection\Custom_Object_Detection\unityLibrary\src\main\AndroidManifest.xml:13:16-50
+66            android:value="True" />
+66-->D:\Object_Detection\Custom_Object_Detection\unityLibrary\src\main\AndroidManifest.xml:13:51-71
+67        <meta-data
+67-->D:\Object_Detection\Custom_Object_Detection\unityLibrary\src\main\AndroidManifest.xml:14:5-78
+68            android:name="unity.launch-fullscreen"
+68-->D:\Object_Detection\Custom_Object_Detection\unityLibrary\src\main\AndroidManifest.xml:14:16-54
+69            android:value="True" />
+69-->D:\Object_Detection\Custom_Object_Detection\unityLibrary\src\main\AndroidManifest.xml:14:55-75
+70        <meta-data
+70-->D:\Object_Detection\Custom_Object_Detection\unityLibrary\src\main\AndroidManifest.xml:15:5-84
+71            android:name="unity.allow-resizable-window"
+71-->D:\Object_Detection\Custom_Object_Detection\unityLibrary\src\main\AndroidManifest.xml:15:16-59
+72            android:value="False" />
+72-->D:\Object_Detection\Custom_Object_Detection\unityLibrary\src\main\AndroidManifest.xml:15:60-81
+73        <meta-data
+73-->D:\Object_Detection\Custom_Object_Detection\unityLibrary\src\main\AndroidManifest.xml:16:5-81
+74            android:name="notch.config"
+74-->D:\Object_Detection\Custom_Object_Detection\unityLibrary\src\main\AndroidManifest.xml:16:16-43
+75            android:value="portrait|landscape" />
+75-->D:\Object_Detection\Custom_Object_Detection\unityLibrary\src\main\AndroidManifest.xml:16:44-78
+76        <meta-data
+76-->D:\Object_Detection\Custom_Object_Detection\unityLibrary\src\main\AndroidManifest.xml:17:5-84
+77            android:name="unity.auto-report-fully-drawn"
+77-->D:\Object_Detection\Custom_Object_Detection\unityLibrary\src\main\AndroidManifest.xml:17:16-60
+78            android:value="true" />
+78-->D:\Object_Detection\Custom_Object_Detection\unityLibrary\src\main\AndroidManifest.xml:17:61-81
+79        <meta-data
+79-->D:\Object_Detection\Custom_Object_Detection\unityLibrary\src\main\AndroidManifest.xml:18:5-77
+80            android:name="com.google.ar.core"
+80-->D:\Object_Detection\Custom_Object_Detection\unityLibrary\src\main\AndroidManifest.xml:18:16-49
+81            android:value="optional" />
+81-->D:\Object_Detection\Custom_Object_Detection\unityLibrary\src\main\AndroidManifest.xml:18:50-74
+82    </application>
+83
+84</manifest>

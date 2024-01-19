@@ -1,0 +1,183 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_marginTop="75dp"
+    tools:context="LowerTeethActivities.Lowermolar1left14Activity">
+
+    <ImageView
+        android:id="@+id/lowermolar1left14"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:src="@drawable/lowermolar1left14" />
+
+    <GridLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="40dp"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@+id/lowermolar1left14"
+        android:rowCount="2"
+        android:columnCount="2">
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_row="0"
+            android:layout_column="0"
+            android:layout_gravity="fill"
+            android:layout_rowWeight="1"
+            android:layout_columnWeight="1"
+            android:layout_margin="5dp"
+            app:cardCornerRadius="10dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@color/bluish"
+                android:layout_gravity="center_vertical"
+                android:gravity="center"
+                android:orientation="vertical">
+
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="35dp"
+                    android:src="@drawable/typelabel" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="110dp"
+                    android:maxWidth="170dp"
+                    android:scrollHorizontally="false"
+                    android:gravity="center"
+                    android:fontFamily="@font/poppins"
+                    android:text="Lower Left Molar 14"
+                    android:textColor="@color/white"
+                    android:textSize="18sp"
+                    android:textStyle="bold" />
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_row="0"
+            android:layout_column="1"
+            android:layout_gravity="fill"
+            android:layout_rowWeight="1"
+            android:layout_columnWeight="1"
+            android:layout_margin="5dp"
+            app:cardCornerRadius="10dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@color/bluish"
+                android:layout_gravity="center_vertical"
+                android:gravity="center"
+                android:orientation="vertical">
+
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="35dp"
+                    android:src="@drawable/treatmentlabel" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="110dp"
+                    android:maxWidth="170dp"
+                    android:scrollHorizontally="false"
+                    android:gravity="center"
+                    android:fontFamily="@font/poppins"
+                    android:text="Cannot say for now."
+                    android:textColor="@color/white"
+                    android:textSize="15sp"
+                    android:textStyle="bold" />
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_row="1"
+            android:layout_column="0"
+            android:layout_gravity="fill"
+            android:layout_rowWeight="1"
+            android:layout_columnWeight="1"
+            android:layout_margin="5dp"
+            app:cardCornerRadius="10dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@color/bluish"
+                android:layout_gravity="center_vertical"
+                android:gravity="center"
+                android:orientation="vertical">
+
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="35dp"
+                    android:src="@drawable/statuslabel" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="110dp"
+                    android:maxWidth="170dp"
+                    android:scrollHorizontally="false"
+                    android:gravity="center"
+                    android:fontFamily="@font/poppins"
+                    android:text="Cannot say for now."
+                    android:textColor="@color/white"
+                    android:textSize="15sp"
+                    android:textStyle="bold" />
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:scrollHorizontally="false"
+            android:layout_row="1"
+            android:layout_column="1"
+            android:layout_gravity="fill"
+            android:layout_rowWeight="1"
+            android:layout_columnWeight="1"
+            android:layout_margin="5dp"
+            app:cardCornerRadius="10dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:scrollHorizontally="false"
+                android:background="@color/bluish"
+                android:layout_gravity="center_vertical"
+                android:gravity="center"
+                android:orientation="vertical">
+
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="35dp"
+                    android:src="@drawable/hygienelabel" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="110dp"
+                    android:maxWidth="170dp"
+                    android:scrollHorizontally="false"
+                    android:gravity="center"
+                    android:fontFamily="@font/poppins"
+                    android:text="Usual hygiene for [n] tooth is brushing them regularly."
+                    android:textColor="@color/white"
+                    android:textSize="15sp"
+                    android:textStyle="bold"
+                    />
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
+
+    </GridLayout>
+
+</RelativeLayout>

@@ -1,0 +1,19 @@
+item {
+  id: 1
+  name: 'incisor'
+}
+
+item {
+  id: 2
+  name: 'canine'
+}
+
+item {
+  id: 3
+  name: 'premolar'
+}
+
+item {
+  id: 4
+  name: 'molar'
+}

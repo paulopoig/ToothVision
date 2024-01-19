@@ -1,0 +1,2550 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    tools:context=".PredictionActivity">
+
+
+    <Button
+        android:id="@+id/predict_button"
+        android:layout_width="64dp"
+        android:layout_height="64dp"
+        android:background="@drawable/ic_baseline_camera_alt_24"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.73" />
+
+
+    <ImageView
+        android:id="@+id/prediction_imageView"
+        android:layout_width="match_parent"
+        android:layout_height="250dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.158" />
+
+
+    <ImageView
+        android:id="@+id/toothscanpng"
+        android:layout_width="match_parent"
+        android:layout_height="250dp"
+        android:src="@drawable/toothxray"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.251" />
+
+    <TextView
+        android:id="@+id/demoText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/poppins"
+        android:gravity="center"
+        android:justificationMode="inter_word"
+        android:lineSpacingMultiplier="0.9"
+        android:text="Open Camera to Predict Fixed Dental Problem"
+        android:textColor="@color/purple_200"
+        android:textSize="12sp"
+        android:visibility="visible"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.542"
+        tools:targetApi="o" />
+
+    <TextView
+        android:id="@+id/result"
+        android:visibility="gone"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:clickable="true"
+        android:focusable="true"
+        android:includeFontPadding="false"
+        android:letterSpacing="0.06"
+        android:text=""
+        android:textAlignment="center"
+        android:textColor="#75B4CD"
+        android:textSize="24sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.573"
+        tools:layout_editor_absoluteX="0dp" />
+
+<!--    <TextView-->
+<!--                android:id="@+id/classified"-->
+<!--                android:visibility="gone"-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:layout_marginStart="16dp"-->
+<!--                android:layout_marginTop="24dp"-->
+<!--                android:layout_marginEnd="16dp"-->
+<!--                android:includeFontPadding="false"-->
+<!--                android:textAlignment="center"-->
+<!--                android:text="Note: Predictions are not 100% accurate, it is advised to see a professional for the matter."-->
+<!--                android:fontFamily="@font/poppins"-->
+<!--                android:textColor="#E64747"-->
+<!--                android:textSize="12sp" />-->
+
+    <TextView
+        android:id="@+id/click_here"
+        android:visibility="gone"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/poppins"
+        android:letterSpacing="0.03"
+        android:text="Click on the Prediction to know more..."
+        android:textAlignment="center"
+        android:textColor="@color/purple_200"
+        android:textSize="15sp"
+        app:layout_constraintBottom_toBottomOf="parent" />
+
+
+
+<!--    Prediction Entities!-->
+
+    <TextView
+        android:id="@+id/detected_classes"
+        android:visibility="gone"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Sample Text"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.859" />
+
+    <TextView
+        android:id="@+id/sample"
+        android:visibility="gone"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Sample Text"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.786" />
+
+
+    <!--Teeth Numbering and Buttons Start Here!-->
+
+
+    <ImageView
+        android:id="@+id/upper_numbering"
+       android:visibility="gone"
+        android:layout_width="326dp"
+        android:layout_height="28dp"
+        android:src="@drawable/numbering"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.428"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.108" />
+
+    <ImageView
+        android:id="@+id/upper_numbering2"
+        android:visibility="gone"
+        android:layout_width="326dp"
+        android:layout_height="28dp"
+        android:src="@drawable/numbering2"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.435"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.384" />
+
+
+    <ImageView
+        android:id="@+id/switchBtn"
+        android:visibility="gone"
+        android:layout_width="97dp"
+        android:layout_height="35dp"
+        android:layout_marginRight="10dp"
+        android:src="@drawable/switchbutton"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.343"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.502" />
+
+    <ImageView
+        android:id="@+id/switchbackBtn"
+        android:visibility="gone"
+        android:layout_width="97dp"
+        android:layout_height="35dp"
+        android:layout_marginLeft="10dp"
+        android:src="@drawable/switchbackbutton"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.64"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.502" />
+
+    <ImageView
+        android:id="@+id/analysisBtn"
+        android:visibility="gone"
+
+        android:layout_width="137dp"
+        android:layout_height="128dp"
+        android:layout_marginRight="50dp"
+        android:src="@drawable/analysisbutton"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.233"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.673" />
+
+
+    <!--Teeth Neutral Starts Here!-->
+
+    <ImageView
+        android:id="@+id/treatmentBtn"
+        android:visibility="gone"
+        android:layout_width="137dp"
+        android:layout_height="128dp"
+        android:layout_marginLeft="50dp"
+        android:src="@drawable/treatmentbutton"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.748"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.673" />
+
+    <ImageView
+        android:id="@+id/legendBtn"
+        android:visibility="gone"
+        android:layout_width="137dp"
+        android:layout_height="128dp"
+        android:layout_marginRight="50dp"
+        android:src="@drawable/legendbutton"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.233"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.913" />
+
+    <ImageView
+        android:id="@+id/augmentBtn"
+        android:visibility="gone"
+        android:layout_width="137dp"
+        android:layout_height="128dp"
+        android:layout_marginLeft="50dp"
+        android:src="@drawable/augmentbutton"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.748"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.913" />
+
+    <ImageView
+        android:id="@+id/upmolar3L16"
+        android:visibility="gone"
+        android:layout_width="18dp"
+        android:layout_height="55dp"
+        android:layout_marginTop="50dp"
+        android:src="@drawable/upmolar3left16"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.106"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.146" />
+
+    <ImageView
+        android:id="@+id/upmolar2L15"
+        android:visibility="gone"
+        android:layout_width="20dp"
+        android:layout_height="55dp"
+        android:layout_marginTop="50dp"
+        android:src="@drawable/upmolar2left15"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.153"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.144" />
+
+    <ImageView
+        android:id="@+id/upmolar1L14"
+        android:visibility="gone"
+        android:layout_width="19dp"
+        android:layout_height="55dp"
+        android:layout_marginTop="50dp"
+        android:src="@drawable/upmolar1left14"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.204"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.144" />
+
+    <ImageView
+        android:id="@+id/uppremolar1L12"
+        android:visibility="gone"
+        android:layout_width="16dp"
+        android:layout_height="69dp"
+        android:layout_marginTop="50dp"
+        android:src="@drawable/uppremolar1left12"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.25"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.128" />
+
+    <ImageView
+        android:id="@+id/uppremolar2L13"
+        android:visibility="gone"
+        android:layout_width="18dp"
+        android:layout_height="64dp"
+        android:layout_marginTop="50dp"
+        android:src="@drawable/uppremolar2left13"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.292"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.131" />
+
+    <ImageView
+        android:id="@+id/upcanineL11"
+        android:visibility="gone"
+        android:layout_width="20dp"
+        android:layout_height="85dp"
+        android:layout_marginTop="50dp"
+        android:src="@drawable/upcanineleft11"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.34"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.105" />
+
+    <ImageView
+        android:id="@+id/upincisor2L10"
+        android:visibility="gone"
+        android:layout_width="20dp"
+        android:layout_height="75dp"
+        android:layout_marginTop="50dp"
+        android:src="@drawable/upincisor2left10"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.391"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.109" />
+
+    <ImageView
+        android:id="@+id/upincisor1L9"
+        android:visibility="gone"
+        android:layout_width="27dp"
+        android:layout_height="82dp"
+        android:layout_marginTop="50dp"
+        android:src="@drawable/upincisor1left9"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.45"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.11" />
+
+    <ImageView
+        android:id="@+id/upincisor1R8"
+        android:visibility="gone"
+        android:layout_width="25dp"
+        android:layout_height="78dp"
+        android:layout_marginTop="50dp"
+        android:src="@drawable/upincisor1right8"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.518"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.113" />
+
+    <ImageView
+        android:id="@+id/upincisor2R7"
+        android:visibility="gone"
+        android:layout_width="25dp"
+        android:layout_height="78dp"
+        android:layout_marginTop="50dp"
+        android:src="@drawable/upincisor2right7"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.582"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.104" />
+
+    <ImageView
+        android:id="@+id/upcanineR6"
+        android:visibility="gone"
+        android:layout_width="20dp"
+        android:layout_height="77dp"
+        android:layout_marginTop="50dp"
+        android:src="@drawable/upcanineright6"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.639"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.11" />
+
+    <ImageView
+        android:id="@+id/uppremolar1R5"
+        android:visibility="gone"
+        android:layout_width="19dp"
+        android:layout_height="62dp"
+        android:layout_marginTop="50dp"
+        android:src="@drawable/uppremolar1right5"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.688"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.125" />
+
+    <ImageView
+        android:id="@+id/uppremolar2R4"
+        android:visibility="gone"
+        android:layout_width="19dp"
+        android:layout_height="62dp"
+        android:layout_marginTop="50dp"
+        android:src="@drawable/uppremolar2right4"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.737"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.125" />
+
+    <ImageView
+        android:id="@+id/upmolar1R3"
+        android:visibility="gone"
+        android:layout_width="19dp"
+        android:layout_height="62dp"
+        android:layout_marginTop="50dp"
+        android:src="@drawable/upmolar1right3"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.785"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.137" />
+
+    <ImageView
+        android:id="@+id/upmolar2R2"
+        android:visibility="gone"
+        android:layout_width="19dp"
+        android:layout_height="62dp"
+        android:layout_marginTop="50dp"
+        android:src="@drawable/upmolar2right2"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.834"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.137" />
+
+    <ImageView
+        android:id="@+id/upmolar3R1"
+        android:visibility="gone"
+        android:layout_width="19dp"
+        android:layout_height="62dp"
+        android:layout_marginTop="50dp"
+        android:src="@drawable/upmolar3right1"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.882"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.137" />
+
+    <ImageView
+        android:id="@+id/lowermolar3R1"
+        android:visibility="gone"
+        android:layout_width="19dp"
+        android:layout_height="62dp"
+        android:layout_marginTop="50dp"
+        android:src="@drawable/lowermolar3right1"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.882"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.23" />
+
+    <ImageView
+        android:id="@+id/lowermolar2R2"
+        android:visibility="gone"
+        android:layout_width="19dp"
+        android:layout_height="62dp"
+        android:layout_marginTop="50dp"
+        android:src="@drawable/lowermolar2right2"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.834"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.23" />
+
+    <ImageView
+        android:id="@+id/lowermolar1R3"
+        android:visibility="gone"
+        android:layout_width="19dp"
+        android:layout_height="62dp"
+        android:layout_marginTop="50dp"
+        android:src="@drawable/lowermolar1right3"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.785"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.228" />
+
+    <ImageView
+        android:id="@+id/lowerpremolar2R4"
+        android:visibility="gone"
+        android:layout_width="19dp"
+        android:layout_height="62dp"
+        android:layout_marginTop="50dp"
+        android:src="@drawable/lowerpremolar2right4"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.737"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.23" />
+
+    <ImageView
+        android:id="@+id/lowerpremolar1R5"
+        android:visibility="gone"
+        android:layout_width="19dp"
+        android:layout_height="62dp"
+        android:layout_marginTop="50dp"
+        android:src="@drawable/lowerpremolar1right5"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.688"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.227" />
+
+    <ImageView
+        android:id="@+id/lowercanineR6"
+        android:visibility="gone"
+        android:layout_width="19dp"
+        android:layout_height="62dp"
+        android:layout_marginTop="50dp"
+        android:src="@drawable/lowercanineright6"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.64"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.23" />
+
+    <ImageView
+        android:id="@+id/lowerincisor2R7"
+        android:visibility="gone"
+        android:layout_width="19dp"
+        android:layout_height="61dp"
+        android:layout_marginTop="50dp"
+        android:src="@drawable/lowerincisor2right7"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.576"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.233" />
+
+    <ImageView
+        android:id="@+id/lowerincisor1R8"
+        android:visibility="gone"
+        android:layout_width="20dp"
+        android:layout_height="63dp"
+        android:layout_marginTop="50dp"
+        android:src="@drawable/lowerincisor1right8"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.524"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.23" />
+
+    <ImageView
+        android:id="@+id/lowerincisor1L9"
+        android:visibility="gone"
+        android:layout_width="25dp"
+        android:layout_height="65dp"
+        android:layout_marginTop="50dp"
+        android:src="@drawable/lowerincisor1left9"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.463"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.231" />
+
+    <ImageView
+        android:id="@+id/lowerincisor2L10"
+        android:visibility="gone"
+        android:layout_width="22dp"
+        android:layout_height="61dp"
+        android:layout_marginTop="50dp"
+        android:src="@drawable/lowerincisor2left10"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.403"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.231" />
+
+    <ImageView
+        android:id="@+id/lowercanineL11"
+        android:visibility="gone"
+        android:layout_width="19dp"
+        android:layout_height="62dp"
+        android:layout_marginTop="50dp"
+        android:src="@drawable/lowercanineleft11"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.349"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.23" />
+
+    <ImageView
+        android:id="@+id/lowerpremolar1L12"
+        android:visibility="gone"
+        android:layout_width="19dp"
+        android:layout_height="62dp"
+        android:layout_marginTop="50dp"
+        android:src="@drawable/lowerpremolar1left12"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.301"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.23" />
+
+    <ImageView
+        android:id="@+id/lowerpremolar2l13"
+        android:visibility="gone"
+        android:layout_width="19dp"
+        android:layout_height="62dp"
+        android:layout_marginTop="50dp"
+        android:src="@drawable/lowerpremolar2left13"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.252"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.23" />
+
+    <ImageView
+        android:id="@+id/lowermolar1L14"
+        android:visibility="gone"
+        android:layout_width="19dp"
+        android:layout_height="62dp"
+        android:layout_marginTop="50dp"
+        android:src="@drawable/lowermolar1left14"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.204"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.227" />
+
+    <ImageView
+        android:id="@+id/lowermolar2L15"
+        android:visibility="gone"
+        android:layout_width="19dp"
+        android:layout_height="62dp"
+        android:layout_marginTop="50dp"
+        android:src="@drawable/lowermolar2left15"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.155"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.227" />
+
+    <ImageView
+        android:id="@+id/lowermolar3L16"
+        android:visibility="gone"
+        android:layout_width="19dp"
+        android:layout_height="62dp"
+        android:layout_marginTop="50dp"
+        android:src="@drawable/lowermolar3left16"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.107"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.227" />
+
+    <!--Teeth Chipped Starts Here!-->
+
+
+    <ImageView
+        android:id="@+id/upmolar3L16chipped"
+        android:visibility="gone"
+        android:layout_width="18dp"
+        android:layout_height="55dp"
+        android:layout_marginTop="50dp"
+        android:src="@drawable/upmolar3left16chipped"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.106"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.146" />
+
+    <ImageView
+        android:id="@+id/upmolar2L15chipped"
+        android:visibility="gone"
+        android:layout_width="20dp"
+        android:layout_height="55dp"
+        android:layout_marginTop="50dp"
+        android:src="@drawable/upmolar2left15chipped"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.153"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.144" />
+
+    <ImageView
+        android:id="@+id/upmolar1L14chipped"
+        android:visibility="gone"
+        android:layout_width="19dp"
+        android:layout_height="55dp"
+        android:layout_marginTop="50dp"
+        android:src="@drawable/upmolar1left14chipped"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.204"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.144" />
+
+    <ImageView
+        android:id="@+id/uppremolar1L12chipped"
+        android:visibility="gone"
+        android:layout_width="16dp"
+        android:layout_height="69dp"
+        android:layout_marginTop="50dp"
+        android:src="@drawable/uppremolar1left12chipped"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.25"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.128" />
+
+    <ImageView
+        android:id="@+id/uppremolar2L13chipped"
+        android:visibility="gone"
+        android:layout_width="18dp"
+        android:layout_height="64dp"
+        android:layout_marginTop="50dp"
+        android:src="@drawable/uppremolar2left13chipped"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.292"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.131" />
+
+    <ImageView
+        android:id="@+id/upcanineL11chipped"
+        android:visibility="gone"
+        android:layout_width="20dp"
+        android:layout_height="85dp"
+        android:layout_marginTop="50dp"
+        android:src="@drawable/upcanineleft11chipped"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.34"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.105" />
+
+    <ImageView
+        android:id="@+id/upincisor2L10chipped"
+        android:visibility="gone"
+        android:layout_width="20dp"
+        android:layout_height="75dp"
+        android:layout_marginTop="50dp"
+        android:src="@drawable/upincisor2left10chipped"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.391"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.109" />
+
+    <ImageView
+        android:id="@+id/upincisor1L9chipped"
+        android:visibility="gone"
+        android:layout_width="27dp"
+        android:layout_height="82dp"
+        android:layout_marginTop="50dp"
+        android:src="@drawable/upincisor1left9chipped"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.45"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.11" />
+
+    <ImageView
+        android:id="@+id/upincisor1R8chipped"
+        android:visibility="gone"
+        android:layout_width="25dp"
+        android:layout_height="78dp"
+        android:layout_marginTop="50dp"
+        android:src="@drawable/upincisor1right8chipped"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.518"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.113" />
+
+    <ImageView
+        android:id="@+id/upincisor2R7chipped"
+        android:visibility="gone"
+        android:layout_width="25dp"
+        android:layout_height="78dp"
+        android:layout_marginTop="50dp"
+        android:src="@drawable/upincisor2right7chipped"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.582"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.104" />
+
+    <ImageView
+        android:id="@+id/upcanineR6chipped"
+        android:visibility="gone"
+        android:layout_width="20dp"
+        android:layout_height="77dp"
+        android:layout_marginTop="50dp"
+        android:src="@drawable/upcanineright6chipped"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.639"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.11" />
+
+    <ImageView
+        android:id="@+id/uppremolar1R5chipped"
+        android:visibility="gone"
+        android:layout_width="19dp"
+        android:layout_height="62dp"
+        android:layout_marginTop="50dp"
+        android:src="@drawable/uppremolar1right5chipped"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.688"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.125" />
+
+    <ImageView
+        android:id="@+id/uppremolar2R4chipped"
+        android:visibility="gone"
+        android:layout_width="19dp"
+        android:layout_height="62dp"
+        android:layout_marginTop="50dp"
+        android:src="@drawable/uppremolar2right4chipped"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.737"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.125" />
+
+    <ImageView
+        android:id="@+id/upmolar1R3chipped"
+        android:visibility="gone"
+        android:layout_width="19dp"
+        android:layout_height="62dp"
+        android:layout_marginTop="50dp"
+        android:src="@drawable/upmolar1right3chipped"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.785"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.137" />
+
+    <ImageView
+        android:id="@+id/upmolar2R2chipped"
+        android:visibility="gone"
+        android:layout_width="19dp"
+        android:layout_height="62dp"
+        android:layout_marginTop="50dp"
+        android:src="@drawable/upmolar2right2chipped"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.834"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.137" />
+
+    <ImageView
+        android:id="@+id/upmolar3R1chipped"
+        android:visibility="gone"
+        android:layout_width="19dp"
+        android:layout_height="62dp"
+        android:layout_marginTop="50dp"
+        android:src="@drawable/upmolar3right1chipped"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.882"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.137" />
+
+    <ImageView
+        android:id="@+id/lowermolar3R1chipped"
+        android:visibility="gone"
+        android:layout_width="19dp"
+        android:layout_height="62dp"
+        android:layout_marginTop="50dp"
+        android:src="@drawable/lowermolar3right1chipped"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.882"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.23" />
+
+    <ImageView
+        android:id="@+id/lowermolar2R2chipped"
+        android:visibility="gone"
+        android:layout_width="19dp"
+        android:layout_height="62dp"
+        android:layout_marginTop="50dp"
+        android:src="@drawable/lowermolar2right2chipped"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.834"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.23" />
+
+    <ImageView
+        android:id="@+id/lowermolar1R3chipped"
+        android:visibility="gone"
+        android:layout_width="19dp"
+        android:layout_height="62dp"
+        android:layout_marginTop="50dp"
+        android:src="@drawable/lowermolar1right3chipped"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.785"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.228" />
+
+    <ImageView
+        android:id="@+id/lowerpremolar2R4chipped"
+        android:visibility="gone"
+        android:layout_width="19dp"
+        android:layout_height="62dp"
+        android:layout_marginTop="50dp"
+        android:src="@drawable/lowerpremolar2right4chipped"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.737"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.23" />
+
+    <ImageView
+        android:id="@+id/lowerpremolar1R5chipped"
+        android:visibility="gone"
+        android:layout_width="19dp"
+        android:layout_height="62dp"
+        android:layout_marginTop="50dp"
+        android:src="@drawable/lowerpremolar1right5chipped"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.688"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.227" />
+
+    <ImageView
+        android:id="@+id/lowercanineR6chipped"
+        android:visibility="gone"
+        android:layout_width="19dp"
+        android:layout_height="62dp"
+        android:layout_marginTop="50dp"
+        android:src="@drawable/lowercanineright6chipped"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.64"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.23" />
+
+    <ImageView
+        android:id="@+id/lowerincisor2R7chipped"
+        android:visibility="gone"
+        android:layout_width="19dp"
+        android:layout_height="61dp"
+        android:layout_marginTop="50dp"
+        android:src="@drawable/lowerincisor2right7chipped"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.576"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.233" />
+
+    <ImageView
+        android:id="@+id/lowerincisor1R8chipped"
+        android:visibility="gone"
+        android:layout_width="20dp"
+        android:layout_height="63dp"
+        android:layout_marginTop="50dp"
+        android:src="@drawable/lowerincisor1right8chipped"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.524"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.23" />
+
+    <ImageView
+        android:id="@+id/lowerincisor1L9chipped"
+        android:visibility="gone"
+        android:layout_width="25dp"
+        android:layout_height="65dp"
+        android:layout_marginTop="50dp"
+        android:src="@drawable/lowerincisor1left9chipped"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.463"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.231" />
+
+    <ImageView
+        android:id="@+id/lowerincisor2L10chipped"
+        android:visibility="gone"
+        android:layout_width="22dp"
+        android:layout_height="61dp"
+        android:layout_marginTop="50dp"
+        android:src="@drawable/lowerincisor2left10chipped"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.403"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.231" />
+
+    <ImageView
+        android:id="@+id/lowercanineL11chipped"
+        android:visibility="gone"
+        android:layout_width="19dp"
+        android:layout_height="62dp"
+        android:layout_marginTop="50dp"
+        android:src="@drawable/lowercanineleft11chipped"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.349"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.23" />
+
+    <ImageView
+        android:id="@+id/lowerpremolar1L12chipped"
+        android:visibility="gone"
+        android:layout_width="19dp"
+        android:layout_height="62dp"
+        android:layout_marginTop="50dp"
+        android:src="@drawable/lowerpremolar1left12chipped"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.301"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.23" />
+
+    <ImageView
+        android:id="@+id/lowerpremolar2l13chipped"
+        android:visibility="gone"
+        android:layout_width="19dp"
+        android:layout_height="62dp"
+        android:layout_marginTop="50dp"
+        android:src="@drawable/lowerpremolar2left13chipped"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.252"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.23" />
+
+    <ImageView
+        android:id="@+id/lowermolar1L14chipped"
+        android:visibility="gone"
+        android:layout_width="19dp"
+        android:layout_height="62dp"
+        android:layout_marginTop="50dp"
+        android:src="@drawable/lowermolar1left14chipped"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.204"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.227" />
+
+    <ImageView
+        android:id="@+id/lowermolar2L15chipped"
+        android:visibility="gone"
+        android:layout_width="19dp"
+        android:layout_height="62dp"
+        android:layout_marginTop="50dp"
+        android:src="@drawable/lowermolar2left15chipped"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.155"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.227" />
+
+    <ImageView
+        android:id="@+id/lowermolar3L16chipped"
+        android:visibility="gone"
+        android:layout_width="19dp"
+        android:layout_height="62dp"
+        android:layout_marginTop="50dp"
+        android:src="@drawable/lowermolar3left16chipped"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.107"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.227" />
+
+
+
+    <!--Teeth Decay Starts Here!-->
+
+    <ImageView
+        android:id="@+id/upmolar3L16decay"
+        android:visibility="gone"
+        android:layout_width="18dp"
+        android:layout_height="55dp"
+        android:layout_marginTop="50dp"
+        android:src="@drawable/upmolar3left16decay"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.106"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.146" />
+
+    <ImageView
+        android:id="@+id/upmolar2L15decay"
+        android:visibility="gone"
+        android:layout_width="20dp"
+        android:layout_height="55dp"
+        android:layout_marginTop="50dp"
+        android:src="@drawable/upmolar2left15decay"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.153"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.144" />
+
+    <ImageView
+        android:id="@+id/upmolar1L14decay"
+        android:visibility="gone"
+        android:layout_width="19dp"
+        android:layout_height="55dp"
+        android:layout_marginTop="50dp"
+        android:src="@drawable/upmolar1left14decay"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.204"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.144" />
+
+    <ImageView
+        android:id="@+id/uppremolar1L12decay"
+        android:visibility="gone"
+        android:layout_width="16dp"
+        android:layout_height="69dp"
+        android:layout_marginTop="50dp"
+        android:src="@drawable/uppremolar1left12decay"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.25"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.128" />
+
+    <ImageView
+        android:id="@+id/uppremolar2L13decay"
+        android:visibility="gone"
+        android:layout_width="18dp"
+        android:layout_height="64dp"
+        android:layout_marginTop="50dp"
+        android:src="@drawable/uppremolar2left13decay"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.292"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.131" />
+
+    <ImageView
+        android:id="@+id/upcanineL11decay"
+        android:visibility="gone"
+        android:layout_width="20dp"
+        android:layout_height="85dp"
+        android:layout_marginTop="50dp"
+        android:src="@drawable/upcanineleft11decay"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.34"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.105" />
+
+    <ImageView
+        android:id="@+id/upincisor2L10decay"
+        android:visibility="gone"
+        android:layout_width="20dp"
+        android:layout_height="75dp"
+        android:layout_marginTop="50dp"
+        android:src="@drawable/upincisor2left10decay"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.391"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.109" />
+
+    <ImageView
+        android:id="@+id/upincisor1L9decay"
+        android:visibility="gone"
+        android:layout_width="27dp"
+        android:layout_height="82dp"
+        android:layout_marginTop="50dp"
+        android:src="@drawable/upincisor1left9decay"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.45"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.11" />
+
+    <ImageView
+        android:id="@+id/upincisor1R8decay"
+        android:visibility="gone"
+        android:layout_width="25dp"
+        android:layout_height="78dp"
+        android:layout_marginTop="50dp"
+        android:src="@drawable/upincisor1right8decay"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.518"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.113" />
+
+    <ImageView
+        android:id="@+id/upincisor2R7decay"
+        android:visibility="gone"
+        android:layout_width="25dp"
+        android:layout_height="78dp"
+        android:layout_marginTop="50dp"
+        android:src="@drawable/upincisor2right7decay"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.582"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.104" />
+
+    <ImageView
+        android:id="@+id/upcanineR6decay"
+        android:visibility="gone"
+        android:layout_width="20dp"
+        android:layout_height="77dp"
+        android:layout_marginTop="50dp"
+        android:src="@drawable/upcanineright6decay"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.639"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.11" />
+
+    <ImageView
+        android:id="@+id/uppremolar1R5decay"
+        android:visibility="gone"
+        android:layout_width="19dp"
+        android:layout_height="62dp"
+        android:layout_marginTop="50dp"
+        android:src="@drawable/uppremolar1right5decay"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.688"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.125" />
+
+    <ImageView
+        android:id="@+id/uppremolar2R4decay"
+        android:visibility="gone"
+        android:layout_width="19dp"
+        android:layout_height="62dp"
+        android:layout_marginTop="50dp"
+        android:src="@drawable/uppremolar2right4decayy"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.737"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.125" />
+
+    <ImageView
+        android:id="@+id/upmolar1R3decay"
+        android:visibility="gone"
+        android:layout_width="19dp"
+        android:layout_height="62dp"
+        android:layout_marginTop="50dp"
+        android:src="@drawable/upmolar1right3decay"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.785"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.137" />
+
+    <ImageView
+        android:id="@+id/upmolar2R2decay"
+        android:visibility="gone"
+        android:layout_width="19dp"
+        android:layout_height="62dp"
+        android:layout_marginTop="50dp"
+        android:src="@drawable/upmolar2right2decay"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.834"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.137" />
+
+    <ImageView
+        android:id="@+id/upmolar3R1decay"
+        android:visibility="gone"
+        android:layout_width="19dp"
+        android:layout_height="62dp"
+        android:layout_marginTop="50dp"
+        android:src="@drawable/upmolar3right1decay"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.882"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.137" />
+
+    <ImageView
+        android:id="@+id/lowermolar3R1decay"
+        android:visibility="gone"
+        android:layout_width="19dp"
+        android:layout_height="62dp"
+        android:layout_marginTop="50dp"
+        android:src="@drawable/lowermolar3right1decay"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.882"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.23" />
+
+    <ImageView
+        android:id="@+id/lowermolar2R2decay"
+        android:visibility="gone"
+        android:layout_width="19dp"
+        android:layout_height="62dp"
+        android:layout_marginTop="50dp"
+        android:src="@drawable/lowermolar2right2decay"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.834"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.23" />
+
+    <ImageView
+        android:id="@+id/lowermolar1R3decay"
+        android:visibility="gone"
+        android:layout_width="19dp"
+        android:layout_height="62dp"
+        android:layout_marginTop="50dp"
+        android:src="@drawable/lowermolar1right3decay"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.785"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.228" />
+
+    <ImageView
+        android:id="@+id/lowerpremolar2R4decay"
+        android:visibility="gone"
+        android:layout_width="19dp"
+        android:layout_height="62dp"
+        android:layout_marginTop="50dp"
+        android:src="@drawable/lowerpremolar2right4decay"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.737"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.23" />
+
+    <ImageView
+        android:id="@+id/lowerpremolar1R5decay"
+        android:visibility="gone"
+        android:layout_width="19dp"
+        android:layout_height="62dp"
+        android:layout_marginTop="50dp"
+        android:src="@drawable/lowerpremolar1right5decay"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.688"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.227" />
+
+    <ImageView
+        android:id="@+id/lowercanineR6decay"
+        android:visibility="gone"
+        android:layout_width="19dp"
+        android:layout_height="62dp"
+        android:layout_marginTop="50dp"
+        android:src="@drawable/lowercanineright6decay"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.64"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.23" />
+
+    <ImageView
+        android:id="@+id/lowerincisor2R7decay"
+        android:visibility="gone"
+        android:layout_width="19dp"
+        android:layout_height="61dp"
+        android:layout_marginTop="50dp"
+        android:src="@drawable/lowerincisor2right7decay"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.576"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.233" />
+
+    <ImageView
+        android:id="@+id/lowerincisor1R8decay"
+        android:visibility="gone"
+        android:layout_width="20dp"
+        android:layout_height="63dp"
+        android:layout_marginTop="50dp"
+        android:src="@drawable/lowerincisor1right8decay"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.524"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.23" />
+
+    <ImageView
+        android:id="@+id/lowerincisor1L9decay"
+        android:visibility="gone"
+        android:layout_width="25dp"
+        android:layout_height="65dp"
+        android:layout_marginTop="50dp"
+        android:src="@drawable/lowerincisor1left9decay"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.463"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.231" />
+
+    <ImageView
+        android:id="@+id/lowerincisor2L10decay"
+        android:visibility="gone"
+        android:layout_width="22dp"
+        android:layout_height="61dp"
+        android:layout_marginTop="50dp"
+        android:src="@drawable/lowerincisor2left10decay"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.403"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.231" />
+
+    <ImageView
+        android:id="@+id/lowercanineL11decay"
+        android:visibility="gone"
+        android:layout_width="19dp"
+        android:layout_height="62dp"
+        android:layout_marginTop="50dp"
+        android:src="@drawable/lowercanineleft11decay"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.349"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.23" />
+
+    <ImageView
+        android:id="@+id/lowerpremolar1L12decay"
+        android:visibility="gone"
+        android:layout_width="19dp"
+        android:layout_height="62dp"
+        android:layout_marginTop="50dp"
+        android:src="@drawable/lowerpremolar1left12decay"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.301"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.23" />
+
+    <ImageView
+        android:id="@+id/lowerpremolar2l13decay"
+        android:visibility="gone"
+        android:layout_width="19dp"
+        android:layout_height="62dp"
+        android:layout_marginTop="50dp"
+        android:src="@drawable/lowerpremolar2left13decay"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.252"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.23" />
+
+    <ImageView
+        android:id="@+id/lowermolar1L14decay"
+        android:visibility="gone"
+        android:layout_width="19dp"
+        android:layout_height="62dp"
+        android:layout_marginTop="50dp"
+        android:src="@drawable/lowermolar1left14decay"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.204"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.227" />
+
+    <ImageView
+        android:id="@+id/lowermolar2L15decay"
+        android:visibility="gone"
+        android:layout_width="19dp"
+        android:layout_height="62dp"
+        android:layout_marginTop="50dp"
+        android:src="@drawable/lowermolar2left15decay"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.155"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.227" />
+
+    <ImageView
+        android:id="@+id/lowermolar3L16decay"
+        android:visibility="gone"
+        android:layout_width="19dp"
+        android:layout_height="62dp"
+        android:layout_marginTop="50dp"
+        android:src="@drawable/lowermolar3left16decay"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.107"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.227" />
+
+
+
+    <!--Teeth Healthy Starts Here!-->
+
+    <ImageView
+        android:id="@+id/upmolar3L16healthy"
+        android:visibility="gone"
+        android:layout_width="18dp"
+        android:layout_height="55dp"
+        android:layout_marginTop="50dp"
+        android:src="@drawable/upmolar3left16healthy"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.106"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.146" />
+
+    <ImageView
+        android:id="@+id/upmolar2L15healthy"
+        android:visibility="gone"
+        android:layout_width="20dp"
+        android:layout_height="55dp"
+        android:layout_marginTop="50dp"
+        android:src="@drawable/upmolar2left15healthy"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.153"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.144" />
+
+    <ImageView
+        android:id="@+id/upmolar1L14healthy"
+        android:visibility="gone"
+        android:layout_width="19dp"
+        android:layout_height="55dp"
+        android:layout_marginTop="50dp"
+        android:src="@drawable/upmolar1left14healthy"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.204"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.144" />
+
+    <ImageView
+        android:id="@+id/uppremolar1L12healthy"
+        android:visibility="gone"
+        android:layout_width="16dp"
+        android:layout_height="69dp"
+        android:layout_marginTop="50dp"
+        android:src="@drawable/uppremolar1left12healthy"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.25"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.128" />
+
+    <ImageView
+        android:id="@+id/uppremolar2L13healthy"
+        android:visibility="gone"
+        android:layout_width="18dp"
+        android:layout_height="64dp"
+        android:layout_marginTop="50dp"
+        android:src="@drawable/uppremolar2left13healthy"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.292"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.131" />
+
+    <ImageView
+        android:id="@+id/upcanineL11healthy"
+        android:visibility="gone"
+        android:layout_width="20dp"
+        android:layout_height="85dp"
+        android:layout_marginTop="50dp"
+        android:src="@drawable/upcanineleft11healthy"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.34"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.105" />
+
+    <ImageView
+        android:id="@+id/upincisor2L10healthy"
+        android:visibility="gone"
+        android:layout_width="20dp"
+        android:layout_height="75dp"
+        android:layout_marginTop="50dp"
+        android:src="@drawable/upincisor2left10healthy"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.391"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.109" />
+
+    <ImageView
+        android:id="@+id/upincisor1L9healthy"
+        android:visibility="gone"
+        android:layout_width="27dp"
+        android:layout_height="82dp"
+        android:layout_marginTop="50dp"
+        android:src="@drawable/upincisor1left9healthy"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.45"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.11" />
+
+    <ImageView
+        android:id="@+id/upincisor1R8healthy"
+        android:visibility="gone"
+        android:layout_width="25dp"
+        android:layout_height="78dp"
+        android:layout_marginTop="50dp"
+        android:src="@drawable/upincisor1right8healthy"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.518"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.113" />
+
+    <ImageView
+        android:id="@+id/upincisor2R7healthy"
+        android:visibility="gone"
+        android:layout_width="25dp"
+        android:layout_height="78dp"
+        android:layout_marginTop="50dp"
+        android:src="@drawable/upincisor2right7healthy"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.582"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.104" />
+
+    <ImageView
+        android:id="@+id/upcanineR6healthy"
+        android:visibility="gone"
+        android:layout_width="20dp"
+        android:layout_height="77dp"
+        android:layout_marginTop="50dp"
+        android:src="@drawable/upcanineright6healthy"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.639"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.11" />
+
+    <ImageView
+        android:id="@+id/uppremolar1R5healthy"
+        android:visibility="gone"
+        android:layout_width="19dp"
+        android:layout_height="62dp"
+        android:layout_marginTop="50dp"
+        android:src="@drawable/uppremolar1right5healthy"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.688"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.125" />
+
+    <ImageView
+        android:id="@+id/uppremolar2R4healthy"
+        android:visibility="gone"
+        android:layout_width="19dp"
+        android:layout_height="62dp"
+        android:layout_marginTop="50dp"
+        android:src="@drawable/uppremolar2right4healthy"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.737"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.125" />
+
+    <ImageView
+        android:id="@+id/upmolar1R3healthy"
+        android:visibility="gone"
+        android:layout_width="19dp"
+        android:layout_height="62dp"
+        android:layout_marginTop="50dp"
+        android:src="@drawable/upmolar1right3healthy"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.785"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.137" />
+
+    <ImageView
+        android:id="@+id/upmolar2R2healthy"
+        android:visibility="gone"
+        android:layout_width="19dp"
+        android:layout_height="62dp"
+        android:layout_marginTop="50dp"
+        android:src="@drawable/upmolar2right2healthy"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.834"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.137" />
+
+    <ImageView
+        android:id="@+id/upmolar3R1healthy"
+        android:visibility="gone"
+        android:layout_width="19dp"
+        android:layout_height="62dp"
+        android:layout_marginTop="50dp"
+        android:src="@drawable/upmolar3right1healthy"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.882"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.137" />
+
+    <ImageView
+        android:id="@+id/lowermolar3R1healthy"
+        android:visibility="gone"
+        android:layout_width="19dp"
+        android:layout_height="62dp"
+        android:layout_marginTop="50dp"
+        android:src="@drawable/lowermolar3right1healthy"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.882"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.23" />
+
+    <ImageView
+        android:id="@+id/lowermolar2R2healthy"
+        android:visibility="gone"
+        android:layout_width="19dp"
+        android:layout_height="62dp"
+        android:layout_marginTop="50dp"
+        android:src="@drawable/lowermolar2right2healthy"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.834"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.23" />
+
+    <ImageView
+        android:id="@+id/lowermolar1R3healthy"
+        android:visibility="gone"
+        android:layout_width="19dp"
+        android:layout_height="62dp"
+        android:layout_marginTop="50dp"
+        android:src="@drawable/lowermolar1right3healthy"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.785"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.228" />
+
+    <ImageView
+        android:id="@+id/lowerpremolar2R4healthy"
+        android:visibility="gone"
+        android:layout_width="19dp"
+        android:layout_height="62dp"
+        android:layout_marginTop="50dp"
+        android:src="@drawable/lowerpremolar2right4healthy"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.737"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.23" />
+
+    <ImageView
+        android:id="@+id/lowerpremolar1R5healthy"
+        android:visibility="gone"
+        android:layout_width="19dp"
+        android:layout_height="62dp"
+        android:layout_marginTop="50dp"
+        android:src="@drawable/lowerpremolar1right5healthy"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.688"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.227" />
+
+    <ImageView
+        android:id="@+id/lowercanineR6healthy"
+        android:visibility="gone"
+        android:layout_width="19dp"
+        android:layout_height="62dp"
+        android:layout_marginTop="50dp"
+        android:src="@drawable/lowercanineright6healthy"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.64"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.23" />
+
+    <ImageView
+        android:id="@+id/lowerincisor2R7healthy"
+        android:visibility="gone"
+        android:layout_width="19dp"
+        android:layout_height="61dp"
+        android:layout_marginTop="50dp"
+        android:src="@drawable/lowerincisor2right7healthy"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.576"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.233" />
+
+    <ImageView
+        android:id="@+id/lowerincisor1R8healthy"
+        android:visibility="gone"
+        android:layout_width="20dp"
+        android:layout_height="63dp"
+        android:layout_marginTop="50dp"
+        android:src="@drawable/lowerincisor1right8healthy"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.524"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.23" />
+
+    <ImageView
+        android:id="@+id/lowerincisor1L9healthy"
+        android:visibility="gone"
+        android:layout_width="25dp"
+        android:layout_height="65dp"
+        android:layout_marginTop="50dp"
+        android:src="@drawable/lowerincisor1left9healthy"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.463"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.231" />
+
+    <ImageView
+        android:id="@+id/lowerincisor2L10healthy"
+        android:visibility="gone"
+        android:layout_width="22dp"
+        android:layout_height="61dp"
+        android:layout_marginTop="50dp"
+        android:src="@drawable/lowerincisor2left10healthy"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.403"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.231" />
+
+    <ImageView
+        android:id="@+id/lowercanineL11healthy"
+        android:visibility="gone"
+        android:layout_width="19dp"
+        android:layout_height="62dp"
+        android:layout_marginTop="50dp"
+        android:src="@drawable/lowercanineleft11healthy"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.349"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.23" />
+
+    <ImageView
+        android:id="@+id/lowerpremolar1L12healthy"
+        android:visibility="gone"
+        android:layout_width="19dp"
+        android:layout_height="62dp"
+        android:layout_marginTop="50dp"
+        android:src="@drawable/lowerpremolar1left12healthy"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.301"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.23" />
+
+    <ImageView
+        android:id="@+id/lowerpremolar2l13healthy"
+        android:visibility="gone"
+        android:layout_width="19dp"
+        android:layout_height="62dp"
+        android:layout_marginTop="50dp"
+        android:src="@drawable/lowerpremolar2left13healthy"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.252"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.23" />
+
+    <ImageView
+        android:id="@+id/lowermolar1L14healthy"
+        android:visibility="gone"
+        android:layout_width="19dp"
+        android:layout_height="62dp"
+        android:layout_marginTop="50dp"
+        android:src="@drawable/lowermolar1left14healthy"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.204"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.227" />
+
+    <ImageView
+        android:id="@+id/lowermolar2L15healthy"
+        android:visibility="gone"
+        android:layout_width="19dp"
+        android:layout_height="62dp"
+        android:layout_marginTop="50dp"
+        android:src="@drawable/lowermolar2left15healthy"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.155"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.227" />
+
+    <ImageView
+        android:id="@+id/lowermolar3L16healthy"
+        android:visibility="gone"
+        android:layout_width="19dp"
+        android:layout_height="62dp"
+        android:layout_marginTop="50dp"
+        android:src="@drawable/lowermolar3left16healthy"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.107"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.227" />
+
+
+    <!--Teeth Loss Starts Here!-->
+
+    <ImageView
+        android:id="@+id/upmolar3L16loss"
+        android:visibility="gone"
+        android:layout_width="18dp"
+        android:layout_height="55dp"
+        android:layout_marginTop="50dp"
+        android:src="@drawable/upmolar3left16loss"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.106"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.146" />
+
+    <ImageView
+        android:id="@+id/upmolar2L15loss"
+        android:visibility="gone"
+        android:layout_width="20dp"
+        android:layout_height="55dp"
+        android:layout_marginTop="50dp"
+        android:src="@drawable/upmolar2left15loss"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.153"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.144" />
+
+    <ImageView
+        android:id="@+id/upmolar1L14loss"
+        android:visibility="gone"
+        android:layout_width="19dp"
+        android:layout_height="55dp"
+        android:layout_marginTop="50dp"
+        android:src="@drawable/upmolar1left14loss"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.204"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.144" />
+
+    <ImageView
+        android:id="@+id/uppremolar1L12loss"
+        android:visibility="gone"
+        android:layout_width="16dp"
+        android:layout_height="69dp"
+        android:layout_marginTop="50dp"
+        android:src="@drawable/uppremolar1left12loss"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.25"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.128" />
+
+    <ImageView
+        android:id="@+id/uppremolar2L13loss"
+        android:visibility="gone"
+        android:layout_width="18dp"
+        android:layout_height="64dp"
+        android:layout_marginTop="50dp"
+        android:src="@drawable/uppremolar2left13loss"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.292"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.131" />
+
+    <ImageView
+        android:id="@+id/upcanineL11loss"
+        android:visibility="gone"
+        android:layout_width="20dp"
+        android:layout_height="85dp"
+        android:layout_marginTop="50dp"
+        android:src="@drawable/upcanineleft11loss"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.34"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.105" />
+
+    <ImageView
+        android:id="@+id/upincisor2L10loss"
+        android:visibility="gone"
+        android:layout_width="20dp"
+        android:layout_height="75dp"
+        android:layout_marginTop="50dp"
+        android:src="@drawable/upincisor2left10loss"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.391"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.109" />
+
+    <ImageView
+        android:id="@+id/upincisor1L9loss"
+        android:visibility="gone"
+        android:layout_width="27dp"
+        android:layout_height="82dp"
+        android:layout_marginTop="50dp"
+        android:src="@drawable/upincisor1left9loss"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.45"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.11" />
+
+    <ImageView
+        android:id="@+id/upincisor1R8loss"
+        android:visibility="gone"
+        android:layout_width="25dp"
+        android:layout_height="78dp"
+        android:layout_marginTop="50dp"
+        android:src="@drawable/upincisor1right8loss"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.518"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.113" />
+
+    <ImageView
+        android:id="@+id/upincisor2R7loss"
+        android:visibility="gone"
+        android:layout_width="25dp"
+        android:layout_height="78dp"
+        android:layout_marginTop="50dp"
+        android:src="@drawable/upincisor2right7loss"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.582"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.104" />
+
+    <ImageView
+        android:id="@+id/upcanineR6loss"
+        android:visibility="gone"
+        android:layout_width="20dp"
+        android:layout_height="77dp"
+        android:layout_marginTop="50dp"
+        android:src="@drawable/upcanineright6loss"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.639"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.11" />
+
+    <ImageView
+        android:id="@+id/uppremolar1R5loss"
+        android:visibility="gone"
+        android:layout_width="19dp"
+        android:layout_height="62dp"
+        android:layout_marginTop="50dp"
+        android:src="@drawable/uppremolar1right5loss"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.688"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.125" />
+
+    <ImageView
+        android:id="@+id/uppremolar2R4loss"
+        android:visibility="gone"
+        android:layout_width="19dp"
+        android:layout_height="62dp"
+        android:layout_marginTop="50dp"
+        android:src="@drawable/uppremolar2right4loss"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.737"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.125" />
+
+    <ImageView
+        android:id="@+id/upmolar1R3loss"
+        android:visibility="gone"
+        android:layout_width="19dp"
+        android:layout_height="62dp"
+        android:layout_marginTop="50dp"
+        android:src="@drawable/upmolar1right3loss"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.785"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.137" />
+
+    <ImageView
+        android:id="@+id/upmolar2R2loss"
+        android:visibility="gone"
+        android:layout_width="19dp"
+        android:layout_height="62dp"
+        android:layout_marginTop="50dp"
+        android:src="@drawable/upmolar2right2loss"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.834"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.137" />
+
+    <ImageView
+        android:id="@+id/upmolar3R1loss"
+        android:visibility="gone"
+        android:layout_width="19dp"
+        android:layout_height="62dp"
+        android:layout_marginTop="50dp"
+        android:src="@drawable/upmolar3right1loss"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.882"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.137" />
+
+    <ImageView
+        android:id="@+id/lowermolar3R1loss"
+        android:visibility="gone"
+        android:layout_width="19dp"
+        android:layout_height="62dp"
+        android:layout_marginTop="50dp"
+        android:src="@drawable/lowermolar3right1loss"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.882"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.23" />
+
+    <ImageView
+        android:id="@+id/lowermolar2R2loss"
+        android:visibility="gone"
+        android:layout_width="19dp"
+        android:layout_height="62dp"
+        android:layout_marginTop="50dp"
+        android:src="@drawable/lowermolar2right2loss"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.834"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.23" />
+
+    <ImageView
+        android:id="@+id/lowermolar1R3loss"
+        android:visibility="gone"
+        android:layout_width="19dp"
+        android:layout_height="62dp"
+        android:layout_marginTop="50dp"
+        android:src="@drawable/lowermolar1right3loss"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.785"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.228" />
+
+    <ImageView
+        android:id="@+id/lowerpremolar2R4loss"
+        android:visibility="gone"
+        android:layout_width="19dp"
+        android:layout_height="62dp"
+        android:layout_marginTop="50dp"
+        android:src="@drawable/lowerpremolar2right4loss"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.737"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.23" />
+
+    <ImageView
+        android:id="@+id/lowerpremolar1R5loss"
+        android:visibility="gone"
+        android:layout_width="19dp"
+        android:layout_height="62dp"
+        android:layout_marginTop="50dp"
+        android:src="@drawable/lowerpremolar1right5loss"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.688"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.227" />
+
+    <ImageView
+        android:id="@+id/lowercanineR6loss"
+        android:visibility="gone"
+        android:layout_width="19dp"
+        android:layout_height="62dp"
+        android:layout_marginTop="50dp"
+        android:src="@drawable/lowercanineright6loss"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.64"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.23" />
+
+    <ImageView
+        android:id="@+id/lowerincisor2R7loss"
+        android:visibility="gone"
+        android:layout_width="19dp"
+        android:layout_height="61dp"
+        android:layout_marginTop="50dp"
+        android:src="@drawable/lowerincisor2right7loss"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.576"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.233" />
+
+    <ImageView
+        android:id="@+id/lowerincisor1R8loss"
+        android:visibility="gone"
+        android:layout_width="20dp"
+        android:layout_height="63dp"
+        android:layout_marginTop="50dp"
+        android:src="@drawable/lowerincisor1right8loss"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.524"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.23" />
+
+    <ImageView
+        android:id="@+id/lowerincisor1L9loss"
+        android:visibility="gone"
+        android:layout_width="25dp"
+        android:layout_height="65dp"
+        android:layout_marginTop="50dp"
+        android:src="@drawable/lowerincisor1left9loss"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.463"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.231" />
+
+    <ImageView
+        android:id="@+id/lowerincisor2L10loss"
+        android:visibility="gone"
+        android:layout_width="22dp"
+        android:layout_height="61dp"
+        android:layout_marginTop="50dp"
+        android:src="@drawable/lowerincisor2left10loss"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.403"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.231" />
+
+    <ImageView
+        android:id="@+id/lowercanineL11loss"
+        android:visibility="gone"
+        android:layout_width="19dp"
+        android:layout_height="62dp"
+        android:layout_marginTop="50dp"
+        android:src="@drawable/lowercanineleft11loss"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.349"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.23" />
+
+    <ImageView
+        android:id="@+id/lowerpremolar1L12loss"
+        android:visibility="gone"
+        android:layout_width="19dp"
+        android:layout_height="62dp"
+        android:layout_marginTop="50dp"
+        android:src="@drawable/lowerpremolar1left12loss"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.301"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.23" />
+
+    <ImageView
+        android:id="@+id/lowerpremolar2l13loss"
+        android:visibility="gone"
+        android:layout_width="19dp"
+        android:layout_height="62dp"
+        android:layout_marginTop="50dp"
+        android:src="@drawable/lowerpremolar2left13loss"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.252"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.23" />
+
+    <ImageView
+        android:id="@+id/lowermolar1L14loss"
+        android:visibility="gone"
+        android:layout_width="19dp"
+        android:layout_height="62dp"
+        android:layout_marginTop="50dp"
+        android:src="@drawable/lowermolar1left14loss"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.204"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.227" />
+
+    <ImageView
+        android:id="@+id/lowermolar2L15loss"
+        android:visibility="gone"
+        android:layout_width="19dp"
+        android:layout_height="62dp"
+        android:layout_marginTop="50dp"
+        android:src="@drawable/lowermolar2left15loss"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.155"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.227" />
+
+    <ImageView
+        android:id="@+id/lowermolar3L16loss"
+        android:visibility="gone"
+        android:layout_width="19dp"
+        android:layout_height="62dp"
+        android:layout_marginTop="50dp"
+        android:src="@drawable/lowermolar3left16loss"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.107"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.227" />
+
+
+    <LinearLayout
+        android:id="@+id/dim_layout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:background="#12000000"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0">
+
+        <ImageView
+            android:id="@+id/legend"
+
+            android:layout_width="340dp"
+            android:layout_height="500dp"
+            android:layout_marginRight="10dp"
+            android:src="@drawable/legend"
+            android:layout_marginTop="130dp"
+            android:layout_marginLeft="10dp"
+            android:layout_gravity="center"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.492"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.588" />
+
+    </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
