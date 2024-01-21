@@ -20,7 +20,7 @@
 <!-- ABOUT THE PROJECT -->
 ## About The Project
 
-[![Product Name Screen Shot][product-screenshot]](https://example.com)
+<a href="https://www.behance.net/gallery/189557711/ToothVision"><img src="https://github.com/paulopoig/ToothVision/assets/78188625/795c3c4e-6147-48f1-ac82-34233f4ea723" alt="ToothVision Mobile Application Showcase"></a>
 
 ToothVision was developed for my System Integration and Architecture pre-thesis course, which focused on leveraging modern technologies like artificial intelligence to create practical solutions for real-world problems. Our team aimed to employ AI algorithms and models to streamline a process or assist a field where technology could provide demonstrable benefits.
 
